@@ -1,0 +1,136 @@
+$panels-gap: 10px;
+.list-header {
+    border-bottom: 1px solid #888888;
+    border-shadow: 1px 2px 5px 1px #888888;
+}
+
+.strong-text{
+    font-weight: 700;
+}
+
+.table-feed {
+    a {
+        color: black;
+    }
+    .vertical-center{
+        line-height: 3em;
+    }
+    overflow: hidden;
+    height: 3em;
+    cursor: pointer;
+    padding: 0px;
+    border-bottom: 1px solid #888888;
+    border-shadow: 1px 2px 5px 1px #888888;
+    transition: $app-transition;
+    &:hover {
+        transition: $app-transition;
+        background-color: #e8e8e8;
+        .hidden {
+            display: inline !important;
+            visibility: visible;
+            opacity: 1;
+            transition: opacity 0.2s ease;
+        }
+    }
+}
+
+.feed-content {
+    float: left;
+    width: 95%;
+}
+
+.btn a {
+    color: #ffffff;
+    text-decoration: none;
+    &:hover {
+        color: #ffffff;
+    }
+}
+
+.head {
+    padding: 15px 15px 0px 15px;
+    border-bottom: 1px solid #888888;
+    .title {
+        padding: 0px 5px 0px 15px;
+        max-width: 50%;
+    }
+}
+
+.read {
+    width: 5%;
+    float: left;
+}
+
+.read-icon {
+    float: right;
+}
+
+.panel {
+    margin-bottom: 0px !important;
+    
+}
+
+.th-large {
+    padding: $panels-gap;
+    .read-btn {
+        margin-left: 5px;
+        margin-top: -5px;
+    }
+    .title {
+        height: 20px;
+        overflow: hidden;
+        padding-left: 5px;
+    }
+    .description {
+        height: 90px;
+        overflow: hidden;
+        padding-left: 5px;
+    }
+    .panel {
+        height: 150px;
+    }
+    .footer {
+//        height: 30px;
+        padding: 3px 0px 5px 5px;
+    }
+    .read-icon,
+    .star-icon,
+    .share-icon {
+        padding: 3px;
+    }
+    img {
+        width: 180px;
+        height: 140px;
+        float: left;
+    }
+    .panel-body {
+        padding: 5px;
+    }
+    .panel:hover {
+        .my-hidden {
+            display: inline !important;
+            visibility: visible;
+            opacity: 1;
+            transition: opacity 0.2s ease;
+        }
+    }
+}
+
+.th-list {
+    @extend .th-large;
+    img {
+        width: 180;
+        height: 140;
+    }
+    .description {
+        height: 85px;
+    }
+}
+
+@media screen and (max-width: 768px){
+    .panel .my-hidden{
+        visibility: visible;
+        display: inline;
+        opacity: 1; 
+    }
+}

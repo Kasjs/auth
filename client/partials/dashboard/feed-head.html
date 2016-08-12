@@ -1,0 +1,36 @@
+<div class="head">
+    <h2 ng-bind='someVar'></h2>
+    <h2>
+        <span class="title shortened-text-block" ng-bind="headTitle()"></span> 
+    </h2>
+    <div class='clearfix'>
+        <div class="btn-group pull-left" ng-hide="hideViewBtns()">
+            <!--
+            <div class="dropdown">
+                <button class="btn btn-default dropdown-toggle" type="button" id="viewDropDown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    <span class="glyphicon glyphicon-th-large" aria-hidden="true"></span>
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenu3">
+                    <li class="dropdown-header">Presentation</li>
+                    <li>
+                        <button type="button" class="btn btn-default app-btn-feed-list" aria-label="Left Align" ng-click="onViewChange('list')"><span class="glyphicon glyphicon-list" aria-hidden="true"></span></button>
+                    </li>
+                    <li>
+                        <button type="button" class="btn btn-default app-btn-feed-list" aria-label="Center Align" ng-click="onViewChange('th-list')"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span></button>
+                    </li>
+                    <li>
+                        <button type="button" class="btn btn-default app-btn-feed-list" aria-label="Justify" ng-click="onViewChange('th-large')"><span class="glyphicon glyphicon-th-large" aria-hidden="true"></span></button>
+                    </li>
+                </ul>
+            </div>
+-->
+            <button type="button" id="viewBtnOne" class="btn btn-default app-btn-feed-list" aria-label="Left Align" ng-class="{selected : toggle1}" ng-click="onViewChange($event, 'list')"><span class="glyphicon glyphicon-list" aria-hidden="true"></span></button>
+            <button type="button" id="viewBtnTwo" class="btn btn-default app-btn-feed-list" aria-label="Center Align" ng-class="{selected : toggle2}" ng-click="onViewChange($event, 'th-list')"><span class="glyphicon glyphicon-th-list" aria-hidden="selected"></span></button>
+            <button type="button" id="viewBtnThree" class="btn btn-default app-btn-feed-list" aria-label="Justify" ng-class="{selected : toggle3}" ng-click="onViewChange($event, 'th-large')"><span class="glyphicon glyphicon-th-large" aria-hidden="true"></span></button>
+        </div>
+        <div class='pull-right' ng-show='feed()'>
+            <button type="button" class="btn btn-default app-btn-delete" aria-label="Justify" ng-click="onFeedDelete()"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
+        </div>
+    </div>
+</div>

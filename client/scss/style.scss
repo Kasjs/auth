@@ -1,0 +1,95 @@
+$main-border-radius: 3px;
+$blue-btn-color: #42a5f5;
+$blue-btn-active-color: #3949ab;
+$delete-btn-color: #eb4e54;
+$app-transition: all 0.2s ease;
+
+html {
+    font-family: 'Roboto', sans-serif !important;
+}
+
+body {
+    overflow-x: hidden;
+    padding-top: 50px;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+#views_container {
+    padding-right: 0px !important;
+    padding-left: 0px !important;
+}
+
+.row {
+    margin-right: 0px !important;
+    margin-left: 0px !important;
+}
+
+.container-fluid {
+    padding-right: 0px !important;
+    padding-left: 0px !important;
+}
+
+.shortened-text-block {
+    display: inline-block;
+    width: 12em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.shortened-text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.cswidth {
+    width: 40%;
+}
+
+.app-panel {
+    border: none;
+    border-radius: $main-border-radius !important;
+    transition: $app-transition;
+    box-shadow: 0px 1px 6px 0px rgba(0, 0, 0, 0.76);
+    &:visited {}
+    &:hover {
+        border: none;
+        transition: $app-transition;
+        box-shadow: 0px 4px 15px 0px rgba(57, 73, 171, 1);
+    }
+    &:active {
+        border: none !important;
+        outline: none;
+    }
+}
+
+.my-hidden {
+    display: none;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.center-text {
+    text-align: center;
+}
+
+@import "navbar";
+@import "animations";
+@import "addFeed";
+@import "feedList";
+@import "sidebar";
+@import "home";
+@import "auth";
+@import "profileSettings";
+@import "buttons";
+

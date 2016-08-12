@@ -1,0 +1,198 @@
+$sidebar-width: 350px;
+$sidebar-color: #e8e8e8;
+$item-hover-color: #c1c1c1;
+$item-text-color: #000000;
+#sidebar-wrapper {
+    padding-left: 0;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    @media(min-width: 768px) {
+        padding-left: $sidebar-width;
+        .toggled {
+            padding-left: 0;
+        }
+    }
+    #sidebar {
+        width: $sidebar-width;
+        z-index: 1000;
+        position: fixed;
+        left: $sidebar-width;
+        width: 0;
+        height: 100%;
+        margin-left: -$sidebar-width;
+        margin-top: 0;
+        overflow-y: auto;
+        background: $sidebar-color;
+        //border-right: 3px solid $navbar-color;
+        -webkit-transition: all 0.5s ease;
+        -moz-transition: all 0.5s ease;
+        -o-transition: all 0.5s ease;
+        transition: all 0.5s ease;
+        @media screen and (min-width: 768px) {
+            width: $sidebar-width;
+        }
+    }
+    .sidebar-nav {
+        position: absolute;
+        top: 0;
+        width: $sidebar-width;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        ul {
+            padding: 0;
+            margin: 0;
+            list-style-type: none;
+        }
+        li {
+            a {
+                display: block;
+                text-decoration: none;
+                color: $item-text-color;
+                &:hover {
+                    text-decoration: none;
+                    background-color: none;
+                }
+                &:active,
+                &:focus {
+                    text-decoration: none;
+                }
+            }
+        }
+        #allFeedsBtn {
+            height: 50px;
+            font-size: 18px;
+            line-height: 60px;
+            a {
+                color: $item-text-color;
+                &:hover {
+                    color: #fff;
+                    background: none;
+                }
+            }
+            .all-text {
+                padding-left: 10px;
+            }
+        }
+        .app-btn-blue {
+            margin-top: 1em;
+        }
+    }
+    .toggled {
+        padding-left: $sidebar-width;
+    }
+    .toggled #sidebar {
+        width: $sidebar-width;
+    }
+    #page-content-wrapper {
+        width: 100%;
+        position: absolute;
+    }
+    .toggled #page-content-wrapper {
+        position: absolute;
+        margin-right: -$sidebar-width;
+    }
+    .toggle-btn-container {
+        z-index: 1000;
+        position: fixed;
+        width: 40px;
+        margin-left: -15px;
+        #menu-toggle {
+            position: absolute;
+            z-index: 1001;
+            border: 0px solid transparent;
+            background-color: #e8e8e8;
+            border-radius: 0px;
+        }
+    }
+}
+
+@media(min-width:768px) {
+    #sidebar-wrapper {
+        padding-left: $sidebar-width;
+    }
+    #sidebar-wrapper.toggled {
+        padding-left: 0;
+    }
+    #sidebar {
+        width: $sidebar-width;
+    }
+    #sidebar-wrapper.toggled #sidebar {
+        width: 0;
+    }
+    #page-content-wrapper {
+        padding: 0;
+        position: relative;
+    }
+    #sidebar-wrapper.toggled #page-content-wrapper {
+        position: relative;
+        margin-right: 0;
+    }
+}
+
+@media(max-width:768px) {
+    #sidebar-wrapper {
+        padding-left: 0;
+    }
+    #sidebar-wrapper.toggled {
+        padding-left: 80%;
+    }
+    #sidebar {
+        position: absolute;
+        width: 0;
+    }
+    #sidebar>.sidebar-nav {
+        width: 100%;
+    }
+    ul {
+        width: 100%;
+    }
+    #sidebar-wrapper.toggled #sidebar {
+        width: 80%;
+    }
+    #page-content-wrapper {
+        padding: 0;
+        position: relative;
+    }
+    #sidebar-wrapper.toggled #page-content-wrapper {
+        position: relative;
+        margin-right: 0;
+    }
+}
+
+.sidebar-item {
+    padding-left: 40px;
+    cursor: pointer;
+    width: 100%;
+    line-height: 3em;
+    transition: $app-transition;
+    border-right: 0em solid;
+    &:hover {
+        transition: $app-transition;
+        border-right: 0.7em solid $blue-btn-active-color;
+        background-color: $item-hover-color;
+    }
+    @media(max-width:768px) {
+        padding-left: 10px;
+    }
+}
+
+.sidebar-item .sidebar-sub-item {
+    padding-left: 40px;
+    padding-right: 10px;
+    box-sizing: border-box;
+    cursor: pointer;
+    width: 100%;
+    line-height: 3em;
+    transition: $app-transition;
+    border-right: 0em solid;
+    &:hover {
+        transition: $app-transition;
+        border-right: 0.7em solid $blue-btn-active-color;
+    }
+    @media(max-width:768px) {
+        padding-left: 20px;
+    }
+}

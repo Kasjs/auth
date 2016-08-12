@@ -1,0 +1,44 @@
+<html ng-app="rssreader">
+
+<head ng-controller="IndexController">
+    <title>Rss Reader</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- build:css css/vendor.css -->
+    <link rel="stylesheet" type="text/css" href="./bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <!-- endbuild -->
+
+    <link rel="stylesheet" type="text/css" ng-href="css/{{layout()}}.css">
+    <link href="assets/fonts/Roboto-Regular.ttf">
+</head>
+
+<body>
+    <div id="app-wrapper">
+        <ng-include src="'partials/static/navbar.html'"></ng-include>
+        <div class="container-fluid">
+            <div class="centered-block">
+                <ui-view></ui-view>
+            </div>
+        </div>
+    </div>
+
+    <!-- build:js js/vendor.js -->
+    <script src="./bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="./bower_components/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="./bower_components/jquery-validation/dist/additional-methods.min.js"></script>
+    <script src="./bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <script src="./js/jqscripts/sidebar.js"></script>
+    <script src="./bower_components/angular/angular.min.js"></script>
+    <script src="./bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="bower_components/ng-file-upload/ng-file-upload.min.js"></script>
+    <script src="bower_components/ng-file-upload/ng-file-upload-shim.min.js"></script>
+    <script src="bower_components/angular-favicon/angular-favicon.min.js"></script>
+    <script src="./bower_components/jpkleemans-angular-validate/dist/angular-validate.min.js"></script>
+	<script src='./bower_components/satellizer/dist/satellizer.js'></script>
+    <!-- endbuild -->
+    <script src="js/app.min.js"></script>
+</body>
+
+</html>

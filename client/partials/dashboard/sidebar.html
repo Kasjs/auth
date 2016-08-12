@@ -1,0 +1,60 @@
+<div id="page-content-wrapper">
+    <div class="row">
+        <div class="col-xs-12 col-lg-12">
+            <div id="sidebar">
+                <div class="sidebar-nav collapsible fadeInAnim">
+                    <div class="sidebar-item" ng-show="checkIfEmpty()">
+                        <div ng-click="getAll()"><span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span><span class="all-text">  All</span></div>
+                    </div>
+                    <ul>
+                        <li class="sidebar-item" ng-repeat="category in feeds">
+                            <span ng-click="toggle = !toggle">
+                                <a data-toggle="collapse" data-target="{{ '#' + $index + category.key }}" ng-click="getByCat(category.key, $index)" class="glyphFeeds">
+                                    <span class="glyphicon glyphicon-chevron-right" ng-class="{'glyphicon-chevron-down' : toggle}"></span><span ng-bind="category.key"></span>
+                            </a>
+                            </span>
+                            <div class="collapse" id="{{ $index + category.key }}">
+                                <ul>
+                                    <li class="sidebar-sub-item" ng-repeat="feed in category.values">
+                                        <a class="shortened-text" ng-click="getByFeed(feed)">
+                                            <img ng-src="{{feed.link|favicon}}">
+                                            <span ng-bind="feed.title"></span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                    <ul ng-show="hideFavourites()">
+                        <li class="sidebar-item">
+                            <span ng-click="toggle1 = !toggle1">
+                            <a data-toggle="collapse" data-target="#favourites" ng-class="glyphFeeds" ng-click="getFavourites()">
+                                <span class="glyphicon glyphicon-star-empty"></span><span class="glyphicon glyphicon-chevron-right" ng-class="{'glyphicon-chevron-down' : toggle1}"></span><span>Favourites</span>
+                            </a>
+                            </span>
+                            <div class="collapse" id="favourites">
+                                <ul>
+                                    <li class="sidebar-sub-item" ng-repeat="article in favs">
+                                        <a class="shortened-text" ng-click="getFavArticle(article)">
+                                            <img ng-src="{{article.link|favicon}}">
+                                            <span ng-bind="article.title"></span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="col-sm-12 center-block">
+                        <button type="button" class="btn btn-default add-feed-btn center-block app-btn-blue" ui-sref=".addFeed">
+                            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add feed
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="toggle-btn-container">
+                <button href="#menu-toggle" class="btn btn-default" id="menu-toggle"><span id="glyphToggle" class="glyphicon glyphicon-chevron-left"></span></button>
+            </div>
+        </div>
+    </div>
+</div>

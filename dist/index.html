@@ -1,0 +1,28 @@
+<html ng-app="rssreader">
+
+<head ng-controller="IndexController">
+    <title>Rss Reader</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="css/vendor.css">
+
+    <link rel="stylesheet" type="text/css" ng-href="css/{{layout()}}.css">
+    <link href="assets/fonts/Roboto-Regular.ttf">
+</head>
+
+<body>
+    <div id="app-wrapper">
+        <ng-include src="'partials/static/navbar.html'"></ng-include>
+        <div class="container-fluid">
+            <div class="centered-block">
+                <ui-view></ui-view>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/vendor.js"></script>
+    <script src="js/app.min.js"></script>
+</body>
+
+</html>

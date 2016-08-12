@@ -1,0 +1,70 @@
+.form-horizontal > #addUsername {
+    width: 85px;
+}
+
+a.cstmblock {
+    display: block;
+    cursor: pointer;
+    padding: 10px 15px;
+    text-decoration: none;
+    text-align: center;
+    font-weight: bold;
+}
+
+.panel-default>.panel-heading {
+    padding: 0;
+    background-color: $navbar-color;
+    color: white;
+}
+
+.panel-default>.panel-heading:hover {
+    color: black !important;
+    background-color: white !important;
+    transition: $app-transition;
+    box-shadow: 0px 1px 6px 0px rgba(0, 0, 0, 0.76);
+    border: none;
+}
+
+#modalUsername {
+    .modal-body {
+        height: 60px;
+    }
+    .modal-footer {
+        text-align: center !important;
+    }
+}
+
+#modalPassword {
+    position: relative;
+    .center {
+        margin: auto;
+        width: 50%;
+    }
+    .modal-body {
+        height: 150px;
+    }
+    .modal-footer {
+        text-align: center !important;
+    }
+}
+
+#profileSettings {
+    margin-top: 150px;
+    #panelProfile {
+        .panel-heading {
+            .user-image {
+                width: 150px;
+                height: 150px;
+                border-radius: 50%;
+            }
+        }
+        padding: 0;
+        .form-group {
+            height: 50px;
+        }
+        .panel-footer {
+            text-align: center !important;
+            margin: 0 !important;
+        }
+    }
+}

@@ -1,0 +1,159 @@
+.app-btn {
+    border: none;
+    border-radius: $main-border-radius !important;
+    transition: $app-transition;
+    cursor: pointer !important;
+    box-shadow: 0px 1px 6px 0px rgba(0, 0, 0, 0.76);
+    &:visited {
+        color: white;
+    }
+    &:hover {
+        background-color: #fcf8e3;
+        color: white;
+        border: none;
+        transition: $app-transition;
+        box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.76);
+    }
+    &:active {
+        transition: $app-transition;
+        border: none !important;
+        outline: none;
+    }
+}
+
+.app-btn-blue {
+    @extend .app-btn;
+    color: white !important;
+    background-color: $navbar-color !important;
+    &:visited {
+        color: white !important;
+        background-color: $blue-btn-color !important;
+    }
+    &:hover {
+        color: black !important;
+        background-color: white !important;
+        transition: $app-transition;
+        a {
+            color: black !important;
+        }
+    }
+    &:active {
+        color: white !important;
+        background-color: $blue-btn-active-color !important;
+    }
+}
+
+.app-btn-feed-list {
+    font-size: 1em;
+    padding: 15px;
+    border: none;
+    border-radius: $main-border-radius !important;
+    transition: $app-transition;
+    cursor: pointer !important;
+    &:visited {
+        border: none !important;
+    }
+    &:hover {
+        border: none;
+        transition: $app-transition;
+    }
+    &:active {
+        border: none !important;
+    }
+}
+
+.app-btn-feed-list.selected {
+    background-color: #cecece;
+}
+
+.app-btn-delete {
+    font-size: 1em;
+    padding: 15px;
+    border: none;
+    border-radius: $main-border-radius !important;
+    transition: $app-transition;
+    cursor: pointer !important;
+    &:visited {
+        border: none !important;
+    }
+    &:hover {
+        background-color: $delete-btn-color;
+        color: white;
+        border: none;
+        transition: $app-transition;
+    }
+    &:active {
+        border: none !important;
+    }
+}
+
+span.extra-btns {
+    cursor: pointer;
+    transition: $app-transition;
+    &:hover {
+        transition: $app-transition;
+    }
+    &:active {
+        transition: $app-transition;
+        transform: scale(1.5, 1.5);
+    }
+}
+
+.onhover-orange {
+    @extend .extra-btns;
+    color: black;
+    &:hover {
+        color: #ff9d00;
+    }
+    &:active {
+        color: #e2ff00;
+    }
+}
+
+.onhover-red {
+    @extend .extra-btns;
+    color: black;
+    &:hover {
+        color: #ff6c00;
+    }
+    &:active {
+        color: #ff0000;
+    }
+}
+
+.onhover-green {
+    @extend .extra-btns;
+    color: black;
+    &:hover {
+        color: #00ffb1;
+    }
+    &:hover {
+        color: #00ff62;
+    }
+}
+
+.onhover-blue {
+    @extend .extra-btns;
+    color: black;
+    &:hover {
+        color: $blue-btn-active-color;
+    }
+    &:hover {
+        color: $blue-btn-active-color;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+//    .app-btn-blue {
+//        width: 60%;
+//        height: 3em;
+//        font-size: 1.5em;
+//    }
+    .navbar .app-btn-blue {
+        width: 70%;
+        height: 2em;
+    }
+    .margin {
+        margin-bottom: 20px;
+    }
+}

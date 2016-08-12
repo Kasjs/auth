@@ -1,0 +1,38 @@
+<!--Detailed table feeds-->
+<div id="th-list" class="row feeds">
+    <div class="col-md-12 th-list" ng-repeat="article in articles">
+        <div class="row">
+            <div class="panel panel-default app-panel fadeInAnim">
+                <div class="panel-body">
+                    <img ng-show="article.img" ng-src="{{article.img}}" class="img-responsive" alt="Test img">
+                    <div class="content">
+                        <div class="title">
+                            <p>
+                                <strong>
+                                    <span ng-bind="article.title"></span>
+                                </strong>
+                            </p>
+                        </div>
+                        <div class="description">
+                            <p>
+                                <span ng-bind="article.content"></span>
+                            </p>
+                        </div>
+                        <div class="footer">
+                            <div class="share">
+                                <span class="my-hidden">
+                                    <button type="button" class="btn btn-info read-btn app-btn-blue">
+                                        <a ng-href="{{article.link}}" target="_blank" class="uppercase">read</a></button>
+                                    <span class="star-icon glyphicon glyphicon-star onhover-orange" ng-click="addFavourite(article);" ng-hide="isFavourites()"></span>
+<!--                                <span class="share-icon glyphicon glyphicon-share onhover-green"></span>-->
+                                </span>
+<!--                                <span class="hidden"><span class="read-icon glyphicon glyphicon-ok onhover-blue" ng-hide="isFavourites()"></span></span>-->
+                                <span class="read-icon glyphicon glyphicon-trash onhover-red" ng-show="isFavourites()"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,27 @@
+.fadeInAnim{
+        animation: fadeIn 0.8s;
+    }
+
+@keyframes fadeIn{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+@keyframes animatetop {
+    0% {
+        top: -400px;
+        opacity: 0;
+    }
+    60%{
+        top: 40px;
+        opacity: 0.6;
+    }
+    100% {
+        top: 0;
+        opacity: 1;
+    }
+}

@@ -1,0 +1,24 @@
+
+# https://git-scm.com/docs/gitignore
+# https://help.github.com/articles/ignoring-files
+# Example .gitignore files: https://github.com/github/gitignore
+/bower_components/
+/node_modules/
+logs/*
+!.gitkeep
+node_modules/
+data/
+client/bower_components
+/client/js/app.min.js
+/client/css/style.css
+./dist
+client/libs/*
+tmp
+.DS_Store
+.idea
+# Created by .ignore support plugin (hsz.mobi)
+/bower_components
+/.idea
+uploads/
+
+
