@@ -1,16 +1,14 @@
 (function () {
     'use strict';
-    angular.module('rssreader').controller('NavbarController', ['$scope', '$state','$auth','authService', function ($scope, $state, $auth ,authService) {
-       $scope.isAuthenticated = function(){
-			return $auth.isAuthenticated();	
-		} 
-        $scope.currentUser = authService.userID();
+    angular.module('rssreader').controller('NavbarController', ['$scope', '$state', 'authService', function ($scope, $state, authService) {
+        $scope.isLoggedIn = authService.isLoggedIn;
+        $scope.currentUser = authService.currentUser;
         $scope.logOut = function () {
-            $auth.logout();
+            authService.logOut();
             $state.go("home");
         }
         $scope.goHome = function () {
-            if ($scope.isAuthenticated()) {
+            if ($scope.isLoggedIn()) {
                 $state.go("dashboard");
             } else {
                 $state.go("home");

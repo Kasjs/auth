@@ -1,14 +1,12 @@
 (function () {
     'use strict';
-    angular.module('rssreader').controller('HomeController', ['$scope', '$state', '$auth', 'dashboardService', 'feedsService','authService', function ($scope, $state, $auth, dashboardService, feedsService, authService) {
-        $scope.isAuthenticated = function(){
-			return $auth.isAuthenticated();	
-		} 
-        $scope.currentUser = authService.userID(); 
+    angular.module('rssreader').controller('HomeController', ['$scope', '$state', 'authService', 'dashboardService', 'feedsService', function ($scope, $state, authService, dashboardService, feedsService) {
+        $scope.isLoggedIn = authService.isLoggedIn;
+        $scope.currentUser = authService.currentUser;
 
         $scope.OnFeeds = function () {
             console.log(dashboardService.getViewMode());
-            if ($auth.isAuthenticated()) {
+            if (authService.isLoggedIn()) {
                 $state.go('dashboard.' + dashboardService.getViewMode(), {
                     id: authService.userID()
                 });

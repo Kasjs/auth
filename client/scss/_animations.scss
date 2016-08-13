@@ -1,5 +1,11 @@
-.fadeInAnim{
+.fade-in-anim{
         animation: fadeIn 0.8s;
+    }
+
+.slide-down-anim {
+        position: relative;
+        padding-top: 10%;
+        animation: animatetop 1s;
     }
 
 @keyframes fadeIn{

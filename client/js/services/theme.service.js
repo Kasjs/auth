@@ -1,4 +1,4 @@
-angular.module('rssreader').service('themeService', [ '$window', function ($window) {
+angular.module('rssreader').service('themeService', ['authService', '$window', function (authService, $window) {
     that = this;
     this.layout = 'style';
     this.getTheme = function(){

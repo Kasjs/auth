@@ -25,9 +25,9 @@
                 </ul>
             </div>
 -->
-            <button type="button" id="viewBtnOne" class="btn btn-default app-btn-feed-list" aria-label="Left Align" ng-class="{selected : toggle1}" ng-click="onViewChange($event, 'list')"><span class="glyphicon glyphicon-list" aria-hidden="true"></span></button>
-            <button type="button" id="viewBtnTwo" class="btn btn-default app-btn-feed-list" aria-label="Center Align" ng-class="{selected : toggle2}" ng-click="onViewChange($event, 'th-list')"><span class="glyphicon glyphicon-th-list" aria-hidden="selected"></span></button>
-            <button type="button" id="viewBtnThree" class="btn btn-default app-btn-feed-list" aria-label="Justify" ng-class="{selected : toggle3}" ng-click="onViewChange($event, 'th-large')"><span class="glyphicon glyphicon-th-large" aria-hidden="true"></span></button>
+            <button type="button" class="btn btn-default app-btn-feed-list" aria-label="Left Align" ng-class="{'selected' : checkIfToggled('list')}" ng-click="onViewChange('view-mode1')"><span class="glyphicon glyphicon-list" aria-hidden="true"></span></button>
+            <button type="button" class="btn btn-default app-btn-feed-list" aria-label="Center Align" ng-class="{'selected' : checkIfToggled('th-list')}" ng-click="onViewChange('view-mode2')"><span class="glyphicon glyphicon-th-list" aria-hidden="selected"></span></button>
+            <button type="button" class="btn btn-default app-btn-feed-list" aria-label="Justify" ng-class="{'selected' : checkIfToggled('th-large')}" ng-click="onViewChange('view-mode3')"><span class="glyphicon glyphicon-th-large" aria-hidden="true"></span></button>
         </div>
         <div class='pull-right' ng-show='feed()'>
             <button type="button" class="btn btn-default app-btn-delete" aria-label="Justify" ng-click="onFeedDelete()"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>

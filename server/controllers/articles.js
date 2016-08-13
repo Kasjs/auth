@@ -9,7 +9,7 @@ var results = {
 };
 
 module.exports.all = function (req, res, next) {
-    User.findById(req.user._id).populate({
+    User.findById(req.user.id).populate({
         path: 'feeds',
         model: 'Feed'
     }).exec(function (err, result) {

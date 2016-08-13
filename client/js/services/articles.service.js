@@ -1,4 +1,4 @@
-angular.module('rssreader').service('articlesService', ['$http', '$q', 'authService', '$timeout', 'dashboardService', 'feedsService','$auth', function ($http, $q, authService, $timeout, dashboardService, feedsService, $auth) {
+angular.module('rssreader').service('articlesService', ['$http', '$q', 'authService', '$timeout', 'dashboardService', 'feedsService', function ($http, $q, authService, $timeout, dashboardService, feedsService) {
     var obj = {
         articles: [],
         isFavourites: false
@@ -96,7 +96,7 @@ angular.module('rssreader').service('articlesService', ['$http', '$q', 'authServ
     obj.addFavourite = function (article) {
         return $http.post('/users/' + authService.userID() + '/addFavArticle', article, {
             headers: {
-                Authorization: 'Bearer ' + $auth.getToken()
+                Authorization: 'Bearer ' + authService.getToken()
             }
         });
     }
@@ -105,7 +105,7 @@ angular.module('rssreader').service('articlesService', ['$http', '$q', 'authServ
 //        console.log("ArticleId:" + article._id);
         return $http.delete('/users/' + authService.userID() + '/deleteFavFeed/' + article._id, {
             headers: {
-                Authorization: 'Bearer ' + $auth.getToken()
+                Authorization: 'Bearer ' + authService.getToken()
             }
         });
     }

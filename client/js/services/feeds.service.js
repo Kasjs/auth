@@ -8,7 +8,7 @@ angular.module('rssreader').service('feedsService', ['$http', '$state', 'authSer
         console.log('feeds');
         return $http.get('/users/' + authService.userID(), {
             headers: {
-                Authorization: 'Bearer ' + $auth.getToken()
+                Authorization: 'Bearer ' + authService.getToken()
             }
         }).then(function (res) {
             angular.copy(res.data, that.feedsDictionary);
@@ -20,7 +20,7 @@ angular.module('rssreader').service('feedsService', ['$http', '$state', 'authSer
     this.getAllFavourites = function () {
         return $http.get('/users/' + authService.userID() + "/favourites", {
             headers: {
-                Authorization: 'Bearer ' + $auth.getToken()
+                Authorization: 'Bearer ' + authService.getToken()
             }
         });
     }
@@ -51,7 +51,7 @@ angular.module('rssreader').service('feedsService', ['$http', '$state', 'authSer
             //            console.log(recievedFeed.entries[1].mediaGroups);
             return $http.post('/users/' + authService.userID() + '/addFeed', feedObj, {
                 headers: {
-                    Authorization: 'Bearer ' + $auth.getToken()
+                    Authorization: 'Bearer ' + authService.getToken()
                 }
             }).then(function (res) {
             });
@@ -63,7 +63,7 @@ angular.module('rssreader').service('feedsService', ['$http', '$state', 'authSer
     this.removeFeed = function (feedId) {
         return $http.delete('/users/' + authService.userID() + '/deleteFeed/' + feedId, {
             headers: {
-                Authorization: 'Bearer ' + $auth.getToken()
+                Authorization: 'Bearer ' + authService.getToken()
             }
         });
     }
