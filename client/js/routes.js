@@ -111,7 +111,7 @@ angular.module('rssreader', ['ui.router', 'ngValidate', 'ngFileUpload', 'favicon
 			clientId: '806677097865-va2i3kq96mmu8i00t9k6q92ks1s9tg0l.apps.googleusercontent.com',
 			url: '/auth/google',
 			authorizationEndpoint: 'https://accounts.google.com/o/oauth2/auth',
-			redirectUri: window.location.origin,
+			redirectUri: 'http://localhost:8080',
 			requiredUrlParams: ['scope'],
 			optionalUrlParams: ['display'],
 			scope: ['profile', 'email'],

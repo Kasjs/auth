@@ -52,6 +52,12 @@ userSchema.pre('save', function(next) {
 //    return this.hash === hash;
 //};
 
+userSchema.methods.comparePassword = function(password, done) {
+  bcrypt.compare(password, this.password, function(err, isMatch) {
+    done(err, isMatch);
+  });
+};
+
 //userSchema.methods.generateJwt = function () {
 //    var expiry = new Date();
 //    expiry.setDate(expiry.getDate() + 7);

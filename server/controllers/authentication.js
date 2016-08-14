@@ -3,7 +3,8 @@ var passport = require('passport'),
     User = mongoose.model('User'),
 	moment = require('moment'),
 	jwt = require('jwt-simple'),
-	config = require('../config/config');
+	config = require('../config/config'),
+	request = require('request');
 
 var ERRORS = {
     fill_out_fields: 'Please fill out all fields',
@@ -58,7 +59,7 @@ function createJWT(user) {
 //                return next(err);
 //            }
 //            var token;
-//            token = user. ;
+//            token = createJWT(user) ;
 //            res.status(200);
 //            res.json({
 //                "token": token
@@ -66,7 +67,8 @@ function createJWT(user) {
 //			console.log(token);
 //        });
 //    });
-//}
+//  }
+
 
 module.exports.register = function(req, res) {
   User.findOne({ email: req.body.email }, function(err, existingUser) {
@@ -82,7 +84,7 @@ module.exports.register = function(req, res) {
       if (err) {
         res.status(500).send({ message: err.message });
       }
-      res.send({ token: createJWT(result) });
+      res.send({ token: createJWT(result) , user : user });
 		console.log(result);
     });
   });
@@ -192,7 +194,7 @@ module.exports.changePassword = function (req, res, next) {
         }
     });
 }
-module.exports.googleAuth = function(req, res) {
+  module.exports.googleAuth = function(req, res) {
   var accessTokenUrl = 'https://accounts.google.com/o/oauth2/token';
   var peopleApiUrl = 'https://www.googleapis.com/plus/v1/people/me/openIdConnect';
   var params = {
@@ -225,7 +227,8 @@ module.exports.googleAuth = function(req, res) {
             if (!user) {
               return res.status(400).send({ message: 'User not found' });
             }
-            user.google = profile.sub;
+            user.email = 
+			user.google = profile.sub;
             user.picture = user.picture || profile.picture.replace('sz=50', 'sz=200');
             user.displayName = user.displayName || profile.name;
             user.save(function() {
@@ -242,15 +245,18 @@ module.exports.googleAuth = function(req, res) {
             return res.send({ token: createJWT(existingUser) });
           }
           var user = new User();
+		  user.email = profile.email;		
           user.google = profile.sub;
           user.picture = profile.picture.replace('sz=50', 'sz=200');
           user.displayName = profile.name;
           user.save(function(err) {
             var token = createJWT(user);
-            res.send({ token: token });
+			  console.log(token + 'server');
+            res.send({ token: token , profile : profile , user : user});
           });
         });
       }
     });
   });
 }
+module.exports.facebookAuth;  

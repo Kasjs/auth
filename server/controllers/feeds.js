@@ -32,6 +32,7 @@ module.exports.userParam = function (req, res, next, id) {
 };
 
 module.exports.allFeed = function (req, res, next) {
+	console.log(req.user);
     req.user.populate('feeds', function (err, user) {
         var unique = {},
             distinct = [];

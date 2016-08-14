@@ -1,17 +1,17 @@
-angular.module('rssreader').factory('authService', ['$http', '$window', function ($http, $window) {
+angular.module('rssreader').factory('authService', ['$http', '$window','$auth', function ($http, $window, $auth) {
     var auth = {};
     auth.saveToken = function (token) {
-        $window.localStorage['rss-reader-token'] = token;
+        $auth.setToken(token);
     }
 
     auth.getToken = function () {
-        return $window.localStorage['rss-reader-token'];
+        return $auth.getToken();
     }
 
     auth.isLoggedIn = function () {
         var token = auth.getToken();
         if (token) {
-            var payload = JSON.parse($window.atob(token.split('.')[1]));
+            var payload = $auth.getPayload();
             return payload.exp > Date.now() / 1000;
         } else {
             return false;
@@ -20,31 +20,35 @@ angular.module('rssreader').factory('authService', ['$http', '$window', function
     auth.currentUser = function () {
         if (auth.isLoggedIn()) {
             var token = auth.getToken();
-            var payload = JSON.parse($window.atob(token.split('.')[1]));
+            var payload = $auth.getPayload();
             return payload.email;
         }
     }
     auth.userID = function () {
         if (auth.isLoggedIn()) {
             var token = auth.getToken();
-            var payload = JSON.parse($window.atob(token.split('.')[1]));
-            return payload._id;
+            var payload = $auth.getPayload();
+			console.log(payload);
+            return payload.sub;
         }
     }
     auth.register = function (user) {
+		console.log(user);
         return $http.post('/register', user).success(function (data) {
+			console.log(data);
             auth.saveToken(data.token);
         }).error(function (err) {
             console.log(err.message);
         });
     }  
-	auth.googleAuth = function (user) {
-        return $http.post('/googleAuth', user).success(function (data) {
-            auth.saveToken(data.token);
-        }).error(function (err) {
-            console.log(err.message);
-        });
-    }
+//	auth.authenticate = function (token) {
+//        return $http.post('/auth/google', token).success(function (data) {
+//			console.log(data);
+//            auth.saveToken(data.token);
+//        }).error(function (err) {
+//            console.log(err.message);
+//        });
+//    }
     auth.logIn = function (user) {
 		console.log(user);
         return $http.post('/login', user).success(function (data) {
@@ -54,7 +58,8 @@ angular.module('rssreader').factory('authService', ['$http', '$window', function
         });
     }
     auth.logOut = function () {
-        $window.localStorage.removeItem('rss-reader-token');
+		$auth.removeToken();
+        $auth.logout();
     }
     return auth;
 }]);

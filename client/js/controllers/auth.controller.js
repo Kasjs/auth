@@ -1,6 +1,6 @@
 (function () {
 	'use strict';
-	angular.module('rssreader').controller('AuthController', ['$scope', '$state', 'authService', '$window', 'dashboardService','$auth', function ($scope, $state, authService, $window, dashboardService, $auth) {
+	angular.module('rssreader').controller('AuthController', ['$scope', '$state', 'authService', '$window', 'dashboardService','$auth','$location', function ($scope, $state, authService, $window, dashboardService, $auth, $location) {
 		$scope.user = {};
 		$scope.session;
 
@@ -18,6 +18,7 @@
 				authService.register($scope.user).error(function (error) {
 					$scope.error = error;
 				}).then(function () {
+					console.log(authService.userID());
 					$state.go('dashboard.' + dashboardService.getViewMode(), {
 						id: authService.userID()
 					});
@@ -49,7 +50,16 @@
 		};
 		$scope.authenticate = function (provider) {
 			$auth.authenticate(provider).then(function(response){
-				console.log($auth.getPayload());	
+				console.log(response.data.token);
+				console.log($auth.getToken());
+				authService.saveToken(response.data.token);
+				$state.go('dashboard.' + dashboardService.getViewMode(), {
+							id: authService.userID()
+						});
+				//authService.authenticate(token);
+//				$state.go('dashboard.' + dashboardService.getViewMode(), {
+//							id: authService.userID()
+//						});
 			})
 				
 				
