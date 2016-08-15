@@ -1,5 +1,5 @@
 angular.module('rssreader')
-  .factory('Account', function($http) {
+  .factory('accountInfo',['$http', function($http) {
     return {
       getProfile: function() {
         return $http.get('/api/me');
@@ -8,4 +8,4 @@ angular.module('rssreader')
         return $http.put('/api/me', profileData);
       }
     };
-  });
+  }]);

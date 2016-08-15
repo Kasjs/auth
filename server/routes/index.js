@@ -26,6 +26,9 @@ router.post('/register', authCtrl.register);
 router.post('/login', authCtrl.login);
 router.post('/changePassword', authCtrl.changePassword);
 router.post('/auth/google', authCtrl.googleAuth);
+router.post('/auth/facebook', authCtrl.facebookAuth);
+//router.get('/api/me', authCtrl.getUserIno);
+//router.put('/api/me', authCtrl.putUserIno);
 
 // define user param
 // get user and his feeds

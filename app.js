@@ -21,6 +21,8 @@ var express = require('express'),
 	config = require('./server/config/config');
 
 
+
+
 // uncomment after placing your favicon in /public
 app.use(favicon(path.join(__dirname,'client','assets','images','favicon.ico')));
 require('./server/models/Feeds');

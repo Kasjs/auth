@@ -41,14 +41,6 @@ angular.module('rssreader').factory('authService', ['$http', '$window','$auth', 
             console.log(err.message);
         });
     }  
-//	auth.authenticate = function (token) {
-//        return $http.post('/auth/google', token).success(function (data) {
-//			console.log(data);
-//            auth.saveToken(data.token);
-//        }).error(function (err) {
-//            console.log(err.message);
-//        });
-//    }
     auth.logIn = function (user) {
 		console.log(user);
         return $http.post('/login', user).success(function (data) {

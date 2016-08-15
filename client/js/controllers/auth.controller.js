@@ -55,14 +55,8 @@
 				authService.saveToken(response.data.token);
 				$state.go('dashboard.' + dashboardService.getViewMode(), {
 							id: authService.userID()
-						});
-				//authService.authenticate(token);
-//				$state.go('dashboard.' + dashboardService.getViewMode(), {
-//							id: authService.userID()
-//						});
+				});
 			})
-				
-				
 		};
 
 		$scope.validationLoginOptions = {
@@ -128,15 +122,4 @@
 			}
 		}
 }]);
-	//Authorization
-	/*
-	$scope.auth = auth;
-	console.log(auth);
-	$scope.logout = function() {
-	    auth.signout();
-	    store.remove('profile');
-	    store.remove('token');
-	    $location.path('/login');
-	}
-	*/
 })();
