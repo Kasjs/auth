@@ -4,3 +4,5 @@ http://www.3dnews.ru/news/rss/
 http://www.theverge.com/rss/frontpage
 http://itc.ua/feed
 http://news.liga.net/all/rss.xml
+
+https://github.com/whitef0x0/node-email-verification
